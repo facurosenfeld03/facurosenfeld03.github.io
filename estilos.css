@@ -250,7 +250,7 @@ nav a:hover { color: var(--color-pasture); }
   border: 2px dashed rgba(61, 107, 26, 0.3);
 }
 
-/* ----- Badge dinÃ¡mico ----- */
+/* ----- Badge dinámico ----- */
 .badge-dynamic {
   display: inline-flex;
   align-items: center;
@@ -346,7 +346,7 @@ nav a:hover { color: var(--color-pasture); }
 .feature-card h3 { margin-bottom: 0.5rem; color: var(--color-bark); font-size: 1.15rem; }
 .feature-card p { color: #5a6b52; font-size: 0.95rem; }
 
-/* ----- MÃ³dulos del sistema ----- */
+/* ----- Módulos del sistema ----- */
 .modules-section {
   padding: var(--spacing-section) 0;
   background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-sky) 100%);
@@ -640,7 +640,7 @@ footer .logo-footer img { height: 32px; width: auto; }
   .highlight-media img { max-height: 280px; }
 }
 
-/* ----- Responsive: mÃ³vil ----- */
+/* ----- Responsive: móvil ----- */
 @media (max-width: 600px) {
   :root { --spacing-container: 1rem; --spacing-section: 3.5rem; }
   .container { padding-left: 1rem; padding-right: 1rem; }
@@ -751,4 +751,96 @@ footer .logo-footer img { height: 32px; width: auto; }
 @media (max-width: 600px) {
   .wa-float { bottom: 1.25rem; right: 1.25rem; width: 52px; height: 52px; }
   .wa-float svg { width: 28px; height: 28px; }
+}
+
+/* ----- Página de contacto ----- */
+body.page-contact {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body.page-contact header {
+  position: relative;
+  padding: 1rem 0;
+  background: rgba(248, 246, 240, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(30, 61, 15, 0.06);
+}
+body.page-contact main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 0 4rem;
+}
+.contact-page {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.contact-page h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: var(--color-bark);
+  margin-bottom: 0.75rem;
+}
+.contact-page > p {
+  color: #5a6b52;
+  margin-bottom: 2.5rem;
+}
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+.contact-buttons .btn {
+  min-width: 260px;
+  min-height: 48px;
+  -webkit-tap-highlight-color: transparent;
+}
+.contact-buttons .btn-email {
+  background: linear-gradient(135deg, var(--color-earth), var(--color-pasture));
+  color: white;
+}
+.contact-buttons .btn-email:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+.contact-buttons .btn-whatsapp {
+  background: #25D366;
+  color: white;
+  border: none;
+}
+.contact-buttons .btn-whatsapp:hover {
+  background: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+.contact-hours {
+  margin-top: 2.5rem;
+  font-size: 0.95rem;
+  color: #5a6b52;
+}
+body.page-contact footer {
+  padding: 2rem var(--spacing-container);
+}
+body.page-contact footer .logo-footer {
+  margin-bottom: 0.75rem;
+}
+@media (max-width: 600px) {
+  body.page-contact main { padding: 4rem 0 3rem; }
+  body.page-contact .contact-page h1 { font-size: 1.75rem; }
+  body.page-contact .contact-page > p { font-size: 0.9rem; margin-bottom: 2rem; }
+  body.page-contact .contact-buttons { width: 100%; }
+  body.page-contact .contact-buttons .btn {
+    min-width: 100%;
+    width: 100%;
+    padding: 1rem 1.25rem;
+  }
+  body.page-contact .contact-hours { margin-top: 2rem; font-size: 0.9rem; }
+  body.page-contact footer { padding: 1.5rem 1rem; font-size: 0.85rem; }
+}
+@media (max-width: 380px) {
+  body.page-contact .contact-page h1 { font-size: 1.5rem; }
 }
