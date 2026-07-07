@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="App y sistema de gestión para veterinarias. Historial clínico, turnos online, recordatorios y ofertas. Gratis para dueños de mascotas.">
   <title>Pet — App y sistema de gestión veterinaria</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%232a9d8f'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white'%3E🐾%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%232a9d8f'/%3E%3Cellipse cx='35' cy='42' rx='9' ry='11' fill='white'/%3E%3Cellipse cx='65' cy='42' rx='9' ry='11' fill='white'/%3E%3Cellipse cx='25' cy='62' rx='7' ry='9' fill='white'/%3E%3Cellipse cx='75' cy='62' rx='7' ry='9' fill='white'/%3E%3Cellipse cx='50' cy='72' rx='11' ry='9' fill='white'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
@@ -41,6 +41,26 @@
     }
     img, svg { max-width: 100%; display: block; }
     .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+    .icon { width: 22px; height: 22px; flex-shrink: 0; }
+    .icon-sm { width: 16px; height: 16px; }
+    .icon-lg { width: 26px; height: 26px; }
+    .icon-xl { width: 32px; height: 32px; }
+    .icon-inline { display: inline-flex; vertical-align: middle; }
+    .tab-icon { display: inline-flex; align-items: center; gap: 0.45rem; }
+    .benefit-icon svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .benefit-card.users .benefit-icon { color: var(--teal-dark); }
+    .benefit-card.vets .benefit-icon { color: var(--coral); }
+    .contact-card .icon svg { width: 32px; height: 32px; margin: 0 auto 0.5rem; stroke: var(--amber); fill: none; stroke-width: 1.8; }
+    .brand-icon svg { width: 22px; height: 22px; fill: white; }
+    .free-badge { display: inline-flex; align-items: center; gap: 0.45rem; }
+    .free-badge svg { width: 18px; height: 18px; fill: currentColor; }
+    .pet-avatar-icon { width: 100%; height: 100%; padding: 6px; stroke: var(--navy); fill: none; stroke-width: 1.6; }
+    .sidebar-item { display: flex; align-items: center; gap: 0.45rem; }
+    .sidebar-item svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; flex-shrink: 0; }
+    .sidebar-logo { display: flex; align-items: center; gap: 0.4rem; }
+    .sidebar-logo svg { width: 16px; height: 16px; fill: var(--teal); }
+    .status-icons { display: flex; align-items: center; gap: 4px; }
+    .status-icons svg { width: 14px; height: 14px; fill: currentColor; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
@@ -250,42 +270,109 @@
     .hero-phones {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.25rem;
       align-items: flex-end;
     }
-    .phone-mockup {
-      width: 180px;
-      background: var(--navy);
-      border-radius: 28px;
-      padding: 8px;
-      box-shadow: var(--shadow-lg);
+    /* iPhone frame (estilo iPhone 15 Pro) */
+    .iphone {
+      position: relative;
       flex-shrink: 0;
     }
-    .phone-mockup.secondary {
-      width: 155px;
-      opacity: 0.92;
-      transform: translateY(20px);
+    .iphone.sm { width: 168px; }
+    .iphone.md { width: 200px; }
+    .iphone.lg { width: 270px; }
+    .iphone.secondary { transform: translateY(24px); opacity: 0.95; }
+    .iphone.primary { animation: float 4s ease-in-out infinite; }
+    .iphone-shell {
+      background: linear-gradient(145deg, #4a4a4c 0%, #2c2c2e 40%, #1c1c1e 100%);
+      border-radius: 44px;
+      padding: 10px;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08) inset,
+        0 24px 48px rgba(0,0,0,0.28),
+        0 8px 16px rgba(0,0,0,0.12);
+      position: relative;
     }
-    .phone-mockup.primary { animation: float 4s ease-in-out infinite; }
-    .phone-screen {
-      background: var(--white);
-      border-radius: 22px;
+    .iphone.lg .iphone-shell { border-radius: 48px; padding: 11px; }
+    .iphone.sm .iphone-shell { border-radius: 38px; padding: 8px; }
+    .iphone-shell::before {
+      content: '';
+      position: absolute;
+      right: -2px;
+      top: 88px;
+      width: 3px;
+      height: 52px;
+      background: #3a3a3c;
+      border-radius: 0 2px 2px 0;
+    }
+    .iphone-shell::after {
+      content: '';
+      position: absolute;
+      left: -2px;
+      top: 72px;
+      width: 3px;
+      height: 28px;
+      background: #3a3a3c;
+      border-radius: 2px 0 0 2px;
+      box-shadow: 0 38px 0 #3a3a3c;
+    }
+    .iphone-display {
+      background: #000;
+      border-radius: 36px;
       overflow: hidden;
-      aspect-ratio: 9/18;
+      position: relative;
     }
-    .phone-notch {
+    .iphone.lg .iphone-display { border-radius: 40px; }
+    .iphone.sm .iphone-display { border-radius: 32px; }
+    .iphone-island {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28%;
+      min-width: 58px;
+      max-width: 88px;
       height: 22px;
-      background: var(--navy);
+      background: #000;
+      border-radius: 999px;
+      z-index: 5;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .iphone.sm .iphone-island { height: 18px; min-width: 48px; top: 8px; }
+    .iphone-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px 6px;
+      font-size: 0.62rem;
+      font-weight: 600;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+    }
+    .iphone.sm .iphone-status { padding: 12px 14px 4px; font-size: 0.55rem; }
+    .iphone-ui {
+      background: #f5f9f8;
+      padding: 8px 10px 10px;
+      min-height: 280px;
+      font-size: 0.55rem;
+    }
+    .iphone.lg .iphone-ui { padding: 10px 14px 14px; min-height: 460px; font-size: inherit; }
+    .iphone.sm .iphone-ui { min-height: 240px; padding: 6px 8px 8px; }
+    .iphone-home-bar {
+      height: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: #f5f9f8;
     }
-    .phone-notch span {
-      width: 50px; height: 6px;
-      background: #3d5a66;
+    .iphone-home-bar span {
+      width: 36%;
+      height: 4px;
+      background: #1c1c1e;
       border-radius: 999px;
+      opacity: 0.85;
     }
-    .phone-ui { padding: 10px; font-size: 0.55rem; }
     .phone-ui-header {
       background: linear-gradient(135deg, var(--teal), var(--teal-dark));
       color: white;
@@ -311,7 +398,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
+      overflow: hidden;
     }
     .phone-appt {
       background: white;
@@ -399,7 +486,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
       margin-bottom: 1rem;
     }
     .benefit-card.users .benefit-icon { background: var(--teal-light); }
@@ -411,7 +497,9 @@
     }
     .benefit-card p { font-size: 0.92rem; color: var(--text-muted); }
     .free-badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
       margin-top: 1.5rem;
       padding: 0.5rem 1.25rem;
       background: linear-gradient(135deg, #43aa8b, var(--teal));
@@ -491,41 +579,28 @@
       margin-bottom: 0.5rem;
     }
 
-    /* App prototype frame */
+    /* App prototype — iPhone grande */
     .app-frame-wrap {
       display: flex;
       justify-content: center;
     }
-    .app-frame {
-      width: 280px;
-      background: var(--navy);
-      border-radius: 36px;
-      padding: 12px;
-      box-shadow: var(--shadow-lg);
-    }
-    .app-screen {
-      background: #f5f9f8;
-      border-radius: 28px;
-      overflow: hidden;
-      min-height: 520px;
-    }
-    .app-status {
-      background: var(--navy);
-      padding: 8px 16px 4px;
+    .app-content { padding: 12px 14px 8px; flex: 1; overflow: hidden; }
+    .iphone-screen-inner {
       display: flex;
-      justify-content: space-between;
-      font-size: 0.65rem;
-      color: rgba(255,255,255,0.7);
+      flex-direction: column;
+      background: #f5f9f8;
+      min-height: 480px;
     }
-    .app-content { padding: 16px; }
     .app-nav-bar {
       display: flex;
       justify-content: space-around;
-      padding: 10px;
-      background: white;
+      padding: 8px 10px 4px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
       border-top: 1px solid #e8eeed;
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       color: var(--text-muted);
+      margin-top: auto;
     }
     .app-nav-bar span.active { color: var(--teal); font-weight: 700; }
 
@@ -557,7 +632,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
+      overflow: hidden;
     }
     .screen-pet-info h5 { font-size: 0.85rem; color: var(--navy); }
     .screen-pet-info p { font-size: 0.7rem; color: var(--text-muted); }
@@ -614,31 +689,100 @@
     .offer-banner h5 { font-size: 0.85rem; margin-bottom: 4px; }
     .offer-banner p { font-size: 0.7rem; opacity: 0.9; }
 
-    /* Desktop system prototype */
-    .desktop-frame {
-      background: #1a2f38;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
+    /* MacBook frame */
+    .macbook-wrap {
+      display: flex;
+      justify-content: center;
+      perspective: 1200px;
     }
-    .desktop-titlebar {
-      background: #243a44;
-      padding: 8px 14px;
+    .macbook {
+      width: 100%;
+      max-width: 720px;
+    }
+    .macbook-lid {
+      background: linear-gradient(180deg, #3d3d3f 0%, #2a2a2c 100%);
+      border-radius: 14px 14px 0 0;
+      padding: 10px 10px 0;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset;
+    }
+    .macbook-bezel {
+      background: #0a0a0a;
+      border-radius: 8px 8px 0 0;
+      padding: 14px 8px 8px;
+      position: relative;
+    }
+    .macbook-camera {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1a1a1c;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.06);
+    }
+    .macbook-display {
+      background: #f0f4f3;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+    }
+    .macos-bar {
+      background: rgba(240, 240, 240, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 5px 12px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: space-between;
+      font-size: 0.62rem;
+      color: #333;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      flex-shrink: 0;
     }
-    .desktop-dot {
+    .macos-bar-left {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .macos-dot {
       width: 10px; height: 10px;
       border-radius: 50%;
     }
-    .desktop-dot.red { background: #ff5f57; }
-    .desktop-dot.yellow { background: #febc2e; }
-    .desktop-dot.green { background: #28c840; }
+    .macos-dot.red { background: #ff5f57; }
+    .macos-dot.yellow { background: #febc2e; }
+    .macos-dot.green { background: #28c840; }
+    .macos-bar-title { font-weight: 600; color: #444; }
+    .macbook-base {
+      height: 14px;
+      background: linear-gradient(180deg, #c8c8ca 0%, #a8a8ac 40%, #909094 100%);
+      border-radius: 0 0 12px 12px;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+    .macbook-base::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18%;
+      height: 4px;
+      background: #888;
+      border-radius: 0 0 4px 4px;
+    }
+    .macbook-hinge {
+      height: 4px;
+      background: linear-gradient(90deg, #888, #bbb, #888);
+    }
     .desktop-body {
       display: grid;
-      grid-template-columns: 160px 1fr;
-      min-height: 380px;
+      grid-template-columns: 148px 1fr;
+      flex: 1;
+      min-height: 0;
     }
     .desktop-sidebar {
       background: #1e333c;
@@ -647,8 +791,8 @@
     .sidebar-logo {
       color: white;
       font-weight: 700;
-      font-size: 0.85rem;
-      margin-bottom: 16px;
+      font-size: 0.82rem;
+      margin-bottom: 14px;
       padding: 0 8px;
     }
     .sidebar-item {
@@ -906,7 +1050,11 @@
       background: rgba(255,255,255,0.15);
       transform: translateY(-4px);
     }
-    .contact-card .icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .contact-card .icon {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
     .contact-card h4 { font-size: 0.85rem; opacity: 0.8; margin-bottom: 0.35rem; font-weight: 500; }
     .contact-card a {
       color: var(--amber);
@@ -976,7 +1124,8 @@
       .hero-lead { margin-left: auto; margin-right: auto; }
       .hero-actions, .hero-stats { justify-content: center; }
       .proto-layout { grid-template-columns: 1fr; }
-      .desktop-body { grid-template-columns: 120px 1fr; }
+      .desktop-body { grid-template-columns: 110px 1fr; }
+      .macbook-display { min-height: 280px; }
     }
     @media (max-width: 680px) {
       .nav-desktop nav { display: none; }
@@ -1007,7 +1156,7 @@
   <header id="header">
     <div class="container header-inner">
       <a href="/pet/" class="brand">
-        <span class="brand-icon">🐾</span>
+        <span class="brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="7.5" cy="8.5" rx="2.2" ry="2.8"/><ellipse cx="16.5" cy="8.5" rx="2.2" ry="2.8"/><ellipse cx="5" cy="13.5" rx="1.8" ry="2.2"/><ellipse cx="19" cy="13.5" rx="1.8" ry="2.2"/><ellipse cx="12" cy="16.5" rx="3" ry="2.5"/></svg></span>
         Pet
       </a>
       <div class="nav-desktop">
@@ -1062,41 +1211,65 @@
       </div>
       <div class="hero-visual">
         <div class="hero-phones">
-          <div class="phone-mockup secondary">
-            <div class="phone-screen">
-              <div class="phone-notch"><span></span></div>
-              <div class="phone-ui">
-                <div class="phone-offer">
-                  <strong>20% OFF</strong> Antipulgas<br>
-                  Vet San Martín
+          <div class="iphone sm secondary">
+            <div class="iphone-shell">
+              <div class="iphone-display">
+                <div class="iphone-island"></div>
+                <div class="iphone-status">
+                  <span>9:41</span>
+                  <div class="status-icons">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20h20M5 20V10l7-4 7 4v10"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
+                  </div>
                 </div>
-                <div class="phone-appt">
-                  <span class="time">10:30</span> Control anual<br>
-                  <small>Luna · Canina</small>
+                <div class="iphone-ui">
+                  <div class="phone-offer">
+                    <strong>20% OFF</strong> Antipulgas<br>
+                    Vet San Martín
+                  </div>
+                  <div class="phone-appt">
+                    <span class="time">10:30</span> Control anual<br>
+                    <small>Luna · Canina</small>
+                  </div>
                 </div>
+                <div class="iphone-home-bar"><span></span></div>
               </div>
             </div>
           </div>
-          <div class="phone-mockup primary">
-            <div class="phone-screen">
-              <div class="phone-notch"><span></span></div>
-              <div class="phone-ui">
-                <div class="phone-ui-header">
-                  <h4>¡Hola, María!</h4>
-                  <p>Tus mascotas</p>
+          <div class="iphone md primary">
+            <div class="iphone-shell">
+              <div class="iphone-display">
+                <div class="iphone-island"></div>
+                <div class="iphone-status">
+                  <span>9:41</span>
+                  <div class="status-icons">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20h20M5 20V10l7-4 7 4v10"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
+                  </div>
                 </div>
-                <div class="phone-pet-card">
-                  <div class="phone-pet-avatar">🐕</div>
-                  <div><strong>Luna</strong><br><small>Labrador · 3 años</small></div>
+                <div class="iphone-ui">
+                  <div class="phone-ui-header">
+                    <h4>¡Hola, María!</h4>
+                    <p>Tus mascotas</p>
+                  </div>
+                  <div class="phone-pet-card">
+                    <div class="phone-pet-avatar" style="background:#fdeee9;">
+                      <svg class="pet-avatar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 11c0-2.2 1.8-3.5 3.5-3.5.7 0 1.3.2 1.8.6.5-.4 1.1-.6 1.8-.6 1.7 0 3.5 1.3 3.5 3.5"/><circle cx="8" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="10" r="1" fill="currentColor" stroke="none"/><path d="M7 15c0 2.5 2.2 4.5 5 4.5s5-2 5-4.5"/></svg>
+                    </div>
+                    <div><strong>Luna</strong><br><small>Labrador · 3 años</small></div>
+                  </div>
+                  <div class="phone-pet-card">
+                    <div class="phone-pet-avatar" style="background:#e8f6f4;">
+                      <svg class="pet-avatar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-1.5 0-2.5 1.2-2.5 2.5 0 1 .5 1.8 1.2 2.2-.8.5-1.5 1.5-1.5 2.8 0 1.7 1.3 3 3 3h3c1.7 0 3-1.3 3-3 0-1.3-.7-2.3-1.5-2.8.7-.4 1.2-1.2 1.2-2.2C17.5 6.2 16.5 5 15 5"/><path d="M8 8c-.8 0-1.5.7-1.5 1.5S7.2 11 8 11"/><path d="M16 8c.8 0 1.5.7 1.5 1.5S16.8 11 16 11"/></svg>
+                    </div>
+                    <div><strong>Michi</strong><br><small>Siamés · 2 años</small></div>
+                  </div>
+                  <div class="phone-appt">
+                    <span class="time">Próximo turno</span><br>
+                    Vie 12 · 15:00 · Vacuna
+                  </div>
                 </div>
-                <div class="phone-pet-card">
-                  <div class="phone-pet-avatar">🐈</div>
-                  <div><strong>Michi</strong><br><small>Siamés · 2 años</small></div>
-                </div>
-                <div class="phone-appt">
-                  <span class="time">Próximo turno</span><br>
-                  Vie 12 · 15:00 · Vacuna
-                </div>
+                <div class="iphone-home-bar"><span></span></div>
               </div>
             </div>
           </div>
@@ -1111,55 +1284,55 @@
           <p>Una plataforma pensada tanto para quienes aman a sus mascotas como para quienes las cuidan profesionalmente.</p>
         </div>
         <div class="audience-tabs reveal">
-          <button class="audience-tab active" data-audience="users">🐾 Dueños de mascotas</button>
-          <button class="audience-tab" data-audience="vets">🏥 Veterinarias</button>
+          <button class="audience-tab active" data-audience="users"><span class="tab-icon"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><ellipse cx="7.5" cy="9" rx="2" ry="2.5"/><ellipse cx="16.5" cy="9" rx="2" ry="2.5"/><ellipse cx="5" cy="14" rx="1.6" ry="2"/><ellipse cx="19" cy="14" rx="1.6" ry="2"/><ellipse cx="12" cy="17" rx="2.8" ry="2.2"/></svg> Dueños de mascotas</span></button>
+          <button class="audience-tab" data-audience="vets"><span class="tab-icon"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><path d="M9 9h.01"/><path d="M15 9h.01"/></svg> Veterinarias</span></button>
         </div>
 
         <div class="audience-panel active" id="panel-users">
           <div class="benefits-grid">
             <article class="benefit-card users reveal">
-              <div class="benefit-icon">📋</div>
+              <div class="benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg></div>
               <h3>Historial clínico de tu mascota</h3>
               <p>Cargá a tu mascota y registrá su historial clínico e información personal en un solo lugar, accesible cuando lo necesites.</p>
             </article>
             <article class="benefit-card users reveal">
-              <div class="benefit-icon">📅</div>
+              <div class="benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div>
               <h3>Turnos online</h3>
               <p>Agendá turnos desde la app según la disponibilidad de cada veterinaria, sin llamadas ni esperas.</p>
             </article>
             <article class="benefit-card users reveal">
-              <div class="benefit-icon">🔍</div>
+              <div class="benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
               <h3>Descubrí veterinarias y PetShops</h3>
               <p>Explorá veterinarias, horarios, ofertas y negocios de productos para mascotas cerca tuyo.</p>
             </article>
             <article class="benefit-card users reveal">
-              <div class="benefit-icon">🔔</div>
+              <div class="benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
               <h3>Recordatorios inteligentes</h3>
               <p>Recibí avisos de vacunas, controles y citas según la regularidad que requiera cada caso.</p>
             </article>
           </div>
-          <p style="text-align:center;" class="reveal"><span class="free-badge">✨ App móvil 100% gratuita para dueños de mascotas</span></p>
+          <p style="text-align:center;" class="reveal"><span class="free-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> App móvil 100% gratuita para dueños de mascotas</span></p>
         </div>
 
         <div class="audience-panel" id="panel-vets">
           <div class="benefits-grid">
             <article class="benefit-card vets reveal">
-              <div class="benefit-icon">📢</div>
+              <div class="benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 001 1h1l1 7h12l1-7h1a1 1 0 001-1v-2"/><path d="M5 11V7a7 7 0 0114 0v4"/></svg></div>
               <h3>Anuncios y ofertas</h3>
               <p>Publicá tus propias ofertas, descuentos y anuncios con frecuencia. Promocioná productos secundarios que vendés en la veterinaria.</p>
             </article>
             <article class="benefit-card vets reveal">
-              <div class="benefit-icon">⏰</div>
+              <div class="benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
               <h3>Recordatorios para clientes</h3>
               <p>Tus clientes tendrán recordatorios y agenda según los acuerdos o la regularidad requerida en cada tratamiento.</p>
             </article>
             <article class="benefit-card vets reveal">
-              <div class="benefit-icon">📁</div>
+              <div class="benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div>
               <h3>Historia clínica digital</h3>
               <p>Accedé y armá el historial de cada mascota con trazabilidad completa. Consultá registros pasados con mayor facilidad.</p>
             </article>
             <article class="benefit-card vets reveal">
-              <div class="benefit-icon">🗓️</div>
+              <div class="benefit-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h8"/></svg></div>
               <h3>Turnos digitalizados</h3>
               <p>Los clientes reservan online según tu disponibilidad. Organizá tu agenda diaria, semanal o mensual y estimá insumos y demanda.</p>
             </article>
@@ -1176,8 +1349,8 @@
         </div>
 
         <div class="prototype-tabs reveal">
-          <button class="proto-tab active" data-proto="app">📱 App móvil</button>
-          <button class="proto-tab" data-proto="system">💻 Sistema web</button>
+          <button class="proto-tab active" data-proto="app"><span class="tab-icon"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/></svg> App móvil</span></button>
+          <button class="proto-tab" data-proto="system"><span class="tab-icon"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Sistema web</span></button>
         </div>
 
         <!-- App prototype -->
@@ -1200,37 +1373,52 @@
               </ul>
             </div>
             <div class="app-frame-wrap reveal">
-              <div class="app-frame">
-                <div class="app-screen">
-                  <div class="app-status"><span>9:41</span><span>📶 🔋</span></div>
-                  <div class="app-content" id="app-screen-content">
-                    <!-- Inicio screen (default) -->
-                    <p class="screen-greeting">Buenos días,</p>
-                    <h3 class="screen-title">María 👋</h3>
-                    <div class="screen-pet">
-                      <div class="screen-pet-avatar" style="background:#fdeee9;">🐕</div>
-                      <div class="screen-pet-info"><h5>Luna</h5><p>Labrador · 3 años · 28 kg</p></div>
+              <div class="iphone lg">
+                <div class="iphone-shell">
+                  <div class="iphone-display">
+                    <div class="iphone-island"></div>
+                    <div class="iphone-status">
+                      <span>9:41</span>
+                      <div class="status-icons">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20h20M5 20V10l7-4 7 4v10"/></svg>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2"/></svg>
+                      </div>
                     </div>
-                    <div class="screen-pet">
-                      <div class="screen-pet-avatar" style="background:#e8f6f4;">🐈</div>
-                      <div class="screen-pet-info"><h5>Michi</h5><p>Siamés · 2 años · 4 kg</p></div>
+                    <div class="iphone-screen-inner">
+                      <div class="app-content" id="app-screen-content">
+                        <p class="screen-greeting">Buenos días,</p>
+                        <h3 class="screen-title">María</h3>
+                        <div class="screen-pet">
+                          <div class="screen-pet-avatar" style="background:#fdeee9;">
+                            <svg class="pet-avatar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 11c0-2.2 1.8-3.5 3.5-3.5.7 0 1.3.2 1.8.6.5-.4 1.1-.6 1.8-.6 1.7 0 3.5 1.3 3.5 3.5"/><circle cx="8" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="10" r="1" fill="currentColor" stroke="none"/><path d="M7 15c0 2.5 2.2 4.5 5 4.5s5-2 5-4.5"/></svg>
+                          </div>
+                          <div class="screen-pet-info"><h5>Luna</h5><p>Labrador · 3 años · 28 kg</p></div>
+                        </div>
+                        <div class="screen-pet">
+                          <div class="screen-pet-avatar" style="background:#e8f6f4;">
+                            <svg class="pet-avatar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-1.5 0-2.5 1.2-2.5 2.5 0 1 .5 1.8 1.2 2.2-.8.5-1.5 1.5-1.5 2.8 0 1.7 1.3 3 3 3h3c1.7 0 3-1.3 3-3 0-1.3-.7-2.3-1.5-2.8.7-.4 1.2-1.2 1.2-2.2C17.5 6.2 16.5 5 15 5"/><path d="M8 8c-.8 0-1.5.7-1.5 1.5S7.2 11 8 11"/><path d="M16 8c.8 0 1.5.7 1.5 1.5S16.8 11 16 11"/></svg>
+                          </div>
+                          <div class="screen-pet-info"><h5>Michi</h5><p>Siamés · 2 años · 4 kg</p></div>
+                        </div>
+                        <div class="screen-card">
+                          <h5>Próximo turno</h5>
+                          <p>Vie 12 Jul · 15:00 · Vacuna antirrábica</p>
+                          <span class="screen-tag tag-teal">Vet San Martín</span>
+                        </div>
+                        <div class="screen-card">
+                          <h5>Recordatorio</h5>
+                          <p>Control anual de Luna — en 5 días</p>
+                          <span class="screen-tag tag-amber">Pendiente</span>
+                        </div>
+                      </div>
+                      <div class="app-nav-bar">
+                        <span class="active">Inicio</span>
+                        <span>Turnos</span>
+                        <span>Mapa</span>
+                        <span>Perfil</span>
+                      </div>
                     </div>
-                    <div class="screen-card">
-                      <h5>Próximo turno</h5>
-                      <p>Vie 12 Jul · 15:00 · Vacuna antirrábica</p>
-                      <span class="screen-tag tag-teal">Vet San Martín</span>
-                    </div>
-                    <div class="screen-card">
-                      <h5>Recordatorio</h5>
-                      <p>Control anual de Luna — en 5 días</p>
-                      <span class="screen-tag tag-amber">Pendiente</span>
-                    </div>
-                  </div>
-                  <div class="app-nav-bar">
-                    <span class="active">Inicio</span>
-                    <span>Turnos</span>
-                    <span>Mapa</span>
-                    <span>Perfil</span>
+                    <div class="iphone-home-bar"><span></span></div>
                   </div>
                 </div>
               </div>
@@ -1256,38 +1444,51 @@
                 <li>Turnos confirmados y pendientes</li>
               </ul>
             </div>
-            <div class="reveal">
-              <div class="desktop-frame">
-                <div class="desktop-titlebar">
-                  <span class="desktop-dot red"></span>
-                  <span class="desktop-dot yellow"></span>
-                  <span class="desktop-dot green"></span>
-                </div>
-                <div class="desktop-body">
-                  <div class="desktop-sidebar">
-                    <div class="sidebar-logo">🐾 Pet Vet</div>
-                    <div class="sidebar-item active">📅 Agenda</div>
-                    <div class="sidebar-item">📋 Historia clínica</div>
-                    <div class="sidebar-item">👥 Pacientes</div>
-                    <div class="sidebar-item">📢 Anuncios</div>
-                    <div class="sidebar-item">⚙️ Configuración</div>
-                  </div>
-                  <div class="desktop-main" id="desktop-screen-content">
-                    <h4>Agenda — Julio 2026</h4>
-                    <div class="dash-grid">
-                      <div class="dash-stat"><strong>12</strong>Turnos hoy</div>
-                      <div class="dash-stat"><strong>47</strong>Esta semana</div>
-                      <div class="dash-stat"><strong>3</strong>Pendientes</div>
+            <div class="reveal macbook-wrap">
+              <div class="macbook">
+                <div class="macbook-lid">
+                  <div class="macbook-bezel">
+                    <div class="macbook-camera"></div>
+                    <div class="macbook-display">
+                      <div class="macos-bar">
+                        <div class="macos-bar-left">
+                          <span class="macos-dot red"></span>
+                          <span class="macos-dot yellow"></span>
+                          <span class="macos-dot green"></span>
+                        </div>
+                        <span class="macos-bar-title">Pet Vet — Gestión</span>
+                        <span>9:41</span>
+                      </div>
+                      <div class="desktop-body">
+                        <div class="desktop-sidebar">
+                          <div class="sidebar-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="7.5" cy="9" rx="2" ry="2.5"/><ellipse cx="16.5" cy="9" rx="2" ry="2.5"/><ellipse cx="5" cy="14" rx="1.6" ry="2"/><ellipse cx="19" cy="14" rx="1.6" ry="2"/><ellipse cx="12" cy="17" rx="2.8" ry="2.2"/></svg> Pet Vet</div>
+                          <div class="sidebar-item active"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Agenda</div>
+                          <div class="sidebar-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg> Historia clínica</div>
+                          <div class="sidebar-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg> Pacientes</div>
+                          <div class="sidebar-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 001 1h1l1 7h12l1-7h1a1 1 0 001-1v-2"/><path d="M5 11V7a7 7 0 0114 0v4"/></svg> Anuncios</div>
+                          <div class="sidebar-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg> Configuración</div>
+                        </div>
+                        <div class="desktop-main" id="desktop-screen-content">
+                          <h4>Agenda — Julio 2026</h4>
+                          <div class="dash-grid">
+                            <div class="dash-stat"><strong>12</strong>Turnos hoy</div>
+                            <div class="dash-stat"><strong>47</strong>Esta semana</div>
+                            <div class="dash-stat"><strong>3</strong>Pendientes</div>
+                          </div>
+                          <div class="dash-table">
+                            <div class="dash-table-row header"><span>Hora</span><span>Paciente</span><span>Motivo</span></div>
+                            <div class="dash-table-row"><span>09:00</span><span>Luna (María G.)</span><span>Vacuna</span></div>
+                            <div class="dash-table-row"><span>10:30</span><span>Rocky (Carlos P.)</span><span>Control</span></div>
+                            <div class="dash-table-row"><span>11:15</span><span>Michi (María G.)</span><span>Consulta</span></div>
+                            <div class="dash-table-row"><span>15:00</span><span>Max (Ana L.)</span><span>Cirugía menor</span></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="dash-table">
-                      <div class="dash-table-row header"><span>Hora</span><span>Paciente</span><span>Motivo</span></div>
-                      <div class="dash-table-row"><span>09:00</span><span>Luna (María G.)</span><span>Vacuna</span></div>
-                      <div class="dash-table-row"><span>10:30</span><span>Rocky (Carlos P.)</span><span>Control</span></div>
-                      <div class="dash-table-row"><span>11:15</span><span>Michi (María G.)</span><span>Consulta</span></div>
-                      <div class="dash-table-row"><span>15:00</span><span>Max (Ana L.)</span><span>Cirugía menor</span></div>
-                    </div>
                   </div>
                 </div>
+                <div class="macbook-hinge"></div>
+                <div class="macbook-base"></div>
               </div>
             </div>
           </div>
@@ -1358,12 +1559,12 @@
         <p class="reveal">Contactanos para una demo, consultas sobre planes o para registrar tu veterinaria en la plataforma.</p>
         <div class="contact-cards reveal">
           <div class="contact-card">
-            <div class="icon">📞</div>
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
             <h4>Teléfono / WhatsApp</h4>
             <a href="tel:+5493424629665">342 462 9665</a>
           </div>
           <div class="contact-card">
-            <div class="icon">✉️</div>
+            <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
             <h4>Email</h4>
             <a href="mailto:ingsoft_ar@hotmail.com">ingsoft_ar@hotmail.com</a>
           </div>
@@ -1423,14 +1624,19 @@
         });
       });
 
+      /* Icon snippets for dynamic screens */
+      var ICON_DOG = '<svg class="pet-avatar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 11c0-2.2 1.8-3.5 3.5-3.5.7 0 1.3.2 1.8.6.5-.4 1.1-.6 1.8-.6 1.7 0 3.5 1.3 3.5 3.5"/><circle cx="8" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="10" r="1" fill="currentColor" stroke="none"/><path d="M7 15c0 2.5 2.2 4.5 5 4.5s5-2 5-4.5"/></svg>';
+      var ICON_CAT = '<svg class="pet-avatar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-1.5 0-2.5 1.2-2.5 2.5 0 1 .5 1.8 1.2 2.2-.8.5-1.5 1.5-1.5 2.8 0 1.7 1.3 3 3 3h3c1.7 0 3-1.3 3-3 0-1.3-.7-2.3-1.5-2.8.7-.4 1.2-1.2 1.2-2.2C17.5 6.2 16.5 5 15 5"/><path d="M8 8c-.8 0-1.5.7-1.5 1.5S7.2 11 8 11"/><path d="M16 8c.8 0 1.5.7 1.5 1.5S16.8 11 16 11"/></svg>';
+      var ICON_STAR = '<svg class="icon-inline icon-sm" viewBox="0 0 24 24" fill="#f4a261" stroke="none" aria-hidden="true" style="vertical-align:-2px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+
       /* App screen content */
       var appScreens = {
         inicio: {
-          html: '<p class="screen-greeting">Buenos días,</p><h3 class="screen-title">María 👋</h3><div class="screen-pet"><div class="screen-pet-avatar" style="background:#fdeee9;">🐕</div><div class="screen-pet-info"><h5>Luna</h5><p>Labrador · 3 años · 28 kg</p></div></div><div class="screen-pet"><div class="screen-pet-avatar" style="background:#e8f6f4;">🐈</div><div class="screen-pet-info"><h5>Michi</h5><p>Siamés · 2 años · 4 kg</p></div></div><div class="screen-card"><h5>Próximo turno</h5><p>Vie 12 Jul · 15:00 · Vacuna antirrábica</p><span class="screen-tag tag-teal">Vet San Martín</span></div><div class="screen-card"><h5>Recordatorio</h5><p>Control anual de Luna — en 5 días</p><span class="screen-tag tag-amber">Pendiente</span></div>',
+          html: '<p class="screen-greeting">Buenos días,</p><h3 class="screen-title">María</h3><div class="screen-pet"><div class="screen-pet-avatar" style="background:#fdeee9;">' + ICON_DOG + '</div><div class="screen-pet-info"><h5>Luna</h5><p>Labrador · 3 años · 28 kg</p></div></div><div class="screen-pet"><div class="screen-pet-avatar" style="background:#e8f6f4;">' + ICON_CAT + '</div><div class="screen-pet-info"><h5>Michi</h5><p>Siamés · 2 años · 4 kg</p></div></div><div class="screen-card"><h5>Próximo turno</h5><p>Vie 12 Jul · 15:00 · Vacuna antirrábica</p><span class="screen-tag tag-teal">Vet San Martín</span></div><div class="screen-card"><h5>Recordatorio</h5><p>Control anual de Luna — en 5 días</p><span class="screen-tag tag-amber">Pendiente</span></div>',
           desc: ['Mascotas registradas con datos personales', 'Próximos turnos a un toque', 'Acceso rápido a veterinarias cercanas']
         },
         turnos: {
-          html: '<h3 class="screen-title">Agendar turno</h3><div class="screen-card"><h5>Vet San Martín</h5><p>Av. San Martín 1234 · ⭐ 4.8</p></div><p style="font-size:0.75rem;color:#5c7174;margin-bottom:8px;">Seleccioná fecha:</p><div class="calendar-mini"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span class="day-active">12</span><span>13</span></div><div class="screen-card" style="margin-top:10px;"><h5>Horarios disponibles</h5><p><span class="screen-tag tag-teal">09:00</span> <span class="screen-tag tag-teal">10:30</span> <span class="screen-tag tag-teal">15:00</span> <span class="screen-tag tag-coral">16:30</span></p></div><div class="screen-card"><h5>Mascota</h5><p>Luna · Vacuna antirrábica</p></div>',
+          html: '<h3 class="screen-title">Agendar turno</h3><div class="screen-card"><h5>Vet San Martín</h5><p>Av. San Martín 1234 · ' + ICON_STAR + ' 4.8</p></div><p style="font-size:0.75rem;color:#5c7174;margin-bottom:8px;">Seleccioná fecha:</p><div class="calendar-mini"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span class="day-active">12</span><span>13</span></div><div class="screen-card" style="margin-top:10px;"><h5>Horarios disponibles</h5><p><span class="screen-tag tag-teal">09:00</span> <span class="screen-tag tag-teal">10:30</span> <span class="screen-tag tag-teal">15:00</span> <span class="screen-tag tag-coral">16:30</span></p></div><div class="screen-card"><h5>Mascota</h5><p>Luna · Vacuna antirrábica</p></div>',
           desc: ['Elegí veterinaria y horario disponible', 'Calendario interactivo de turnos', 'Confirmación instantánea']
         },
         historial: {
