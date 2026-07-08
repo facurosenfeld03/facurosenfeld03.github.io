@@ -590,20 +590,90 @@
       display: flex;
       flex-direction: column;
       background: #f5f9f8;
-      min-height: 480px;
+      min-height: 500px;
     }
+    .app-search {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      border-radius: 10px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+    .app-search svg { width: 14px; height: 14px; stroke: var(--text-muted); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .app-quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .app-quick-btn {
+      background: white;
+      border-radius: 10px;
+      padding: 8px 4px;
+      text-align: center;
+      font-size: 0.55rem;
+      color: var(--navy);
+      font-weight: 600;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .app-quick-btn .qb-icon {
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      background: var(--teal-light);
+      margin: 0 auto 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .app-quick-btn .qb-icon svg { width: 14px; height: 14px; stroke: var(--teal-dark); fill: none; stroke-width: 1.8; }
+    .app-section-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 10px 0 6px;
+    }
+    .screen-list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      margin-bottom: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      font-size: 0.65rem;
+    }
+    .screen-list-item .sli-main strong { display: block; color: var(--navy); font-size: 0.72rem; }
+    .screen-list-item .sli-main span { color: var(--text-muted); font-size: 0.6rem; }
+    .screen-vet-card {
+      background: white;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .screen-vet-card h5 { font-size: 0.78rem; color: var(--navy); margin-bottom: 2px; }
+    .screen-vet-card p { font-size: 0.62rem; color: var(--text-muted); margin-bottom: 6px; }
+    .screen-vet-meta { display: flex; gap: 6px; flex-wrap: wrap; }
     .app-nav-bar {
       display: flex;
       justify-content: space-around;
-      padding: 8px 10px 4px;
-      background: rgba(255,255,255,0.92);
+      padding: 6px 10px 2px;
+      background: rgba(255,255,255,0.95);
       backdrop-filter: blur(12px);
       border-top: 1px solid #e8eeed;
-      font-size: 0.58rem;
+      font-size: 0.52rem;
       color: var(--text-muted);
       margin-top: auto;
     }
-    .app-nav-bar span.active { color: var(--teal); font-weight: 700; }
+    .app-nav-item { text-align: center; }
+    .app-nav-item svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; margin: 0 auto 2px; display: block; }
+    .app-nav-item.active { color: var(--teal); font-weight: 700; }
 
     /* Screen content blocks */
     .screen-greeting {
@@ -627,6 +697,7 @@
       margin-bottom: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
+    .screen-pet .screen-tag { margin-left: auto; flex-shrink: 0; }
     .screen-pet-avatar {
       width: 44px; height: 44px;
       border-radius: 50%;
@@ -728,7 +799,7 @@
       border-radius: 4px;
       overflow: hidden;
       aspect-ratio: 16/10;
-      min-height: 340px;
+      min-height: 400px;
       display: flex;
       flex-direction: column;
     }
@@ -781,27 +852,67 @@
     }
     .desktop-body {
       display: grid;
-      grid-template-columns: 148px 1fr;
+      grid-template-columns: 152px 1fr;
       flex: 1;
       min-height: 0;
     }
     .desktop-sidebar {
       background: #1e333c;
-      padding: 16px 10px;
+      padding: 12px 8px;
+      display: flex;
+      flex-direction: column;
     }
     .sidebar-logo {
       color: white;
       font-weight: 700;
-      font-size: 0.82rem;
-      margin-bottom: 14px;
+      font-size: 0.78rem;
+      margin-bottom: 12px;
       padding: 0 8px;
     }
+    .sidebar-section {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.35);
+      padding: 8px 10px 4px;
+      margin-top: 4px;
+    }
     .sidebar-item {
-      padding: 8px 10px;
+      padding: 7px 10px;
       border-radius: 8px;
-      font-size: 0.7rem;
+      font-size: 0.66rem;
       color: rgba(255,255,255,0.6);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+    }
+    .sidebar-item .sb-badge {
+      float: right;
+      background: rgba(255,255,255,0.12);
+      padding: 1px 5px;
+      border-radius: 999px;
+      font-size: 0.55rem;
+    }
+    .sidebar-item.active .sb-badge { background: rgba(42,157,143,0.35); }
+    .sidebar-user {
+      margin-top: auto;
+      padding: 8px 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.62rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .sidebar-user-avatar {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
     }
     .sidebar-item.active {
       background: rgba(42, 157, 143, 0.25);
@@ -809,47 +920,197 @@
       font-weight: 600;
     }
     .desktop-main {
-      background: #f0f4f3;
-      padding: 16px;
+      background: #eef2f1;
+      padding: 10px 12px;
+      overflow-y: auto;
+      max-height: 360px;
     }
     .desktop-main h4 {
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       color: var(--navy);
-      margin-bottom: 12px;
+      margin-bottom: 0;
+      font-weight: 700;
+    }
+    .dash-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .dash-breadcrumb {
+      display: block;
+      font-size: 0.55rem;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+    .dash-header-actions {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .dash-filter {
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.58rem;
+      background: white;
+      color: var(--text-muted);
+      border: 1px solid #dde5e3;
+    }
+    .dash-filter.active {
+      background: var(--teal);
+      color: white;
+      border-color: var(--teal);
+    }
+    .dash-btn {
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.58rem;
+      background: var(--navy);
+      color: white;
+      border: none;
+      font-weight: 600;
+    }
+    .dash-btn-outline {
+      background: white;
+      color: var(--navy);
+      border: 1px solid #dde5e3;
     }
     .dash-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-bottom: 12px;
+      gap: 6px;
+      margin-bottom: 10px;
     }
+    .dash-grid-4 { grid-template-columns: repeat(4, 1fr); }
     .dash-stat {
       background: white;
       border-radius: 8px;
-      padding: 10px;
-      font-size: 0.65rem;
+      padding: 8px;
+      font-size: 0.58rem;
+      border: 1px solid #e8eeed;
     }
     .dash-stat strong {
       display: block;
-      font-size: 1rem;
-      color: var(--teal);
+      font-size: 0.95rem;
+      color: var(--navy);
+      line-height: 1.2;
     }
-    .dash-table {
+    .dash-stat .stat-label { color: var(--text-muted); }
+    .dash-stat .stat-trend {
+      font-size: 0.52rem;
+      margin-top: 2px;
+      color: var(--teal-dark);
+    }
+    .dash-stat .stat-trend.down { color: var(--coral); }
+    .dash-split {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 8px;
+    }
+    .dash-panel {
       background: white;
       border-radius: 8px;
+      border: 1px solid #e8eeed;
       overflow: hidden;
-      font-size: 0.65rem;
+    }
+    .dash-panel-head {
+      padding: 6px 10px;
+      border-bottom: 1px solid #eef2f1;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--navy);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dash-table {
+      font-size: 0.58rem;
     }
     .dash-table-row {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      padding: 6px 10px;
+      border-bottom: 1px solid #eef2f1;
+      align-items: center;
+    }
+    .dash-table-row.cols-5 { grid-template-columns: 0.7fr 1.2fr 0.8fr 1fr 0.7fr; }
+    .dash-table-row.cols-4 { grid-template-columns: 0.8fr 1.2fr 1fr 0.7fr; }
+    .dash-table-row.cols-6 { grid-template-columns: 0.6fr 1fr 0.6fr 0.9fr 0.7fr 0.7fr; }
+    .dash-table-row.header {
+      background: #f5f9f8;
+      font-weight: 700;
+      color: var(--teal-dark);
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .dash-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 0.52rem;
+      font-weight: 600;
+    }
+    .dash-badge.ok { background: var(--teal-light); color: var(--teal-dark); }
+    .dash-badge.wait { background: #fef3e2; color: #c87d2a; }
+    .dash-badge.done { background: #e8edf0; color: #5c7174; }
+    .dash-badge.alert { background: var(--coral-soft); color: var(--coral); }
+    .dash-timeline-item {
+      padding: 6px 10px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.58rem;
+    }
+    .dash-timeline-item strong { display: block; color: var(--navy); }
+    .dash-timeline-item span { color: var(--text-muted); }
+    .dash-patient-card {
+      display: flex;
+      gap: 8px;
+      padding: 8px 10px;
+      border-bottom: 1px solid #eef2f1;
+      align-items: center;
+    }
+    .dash-patient-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .dash-patient-avatar svg { width: 14px; height: 14px; stroke: var(--teal-dark); fill: none; stroke-width: 1.8; }
+    .dash-vitals {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      padding: 8px 10px;
+    }
+    .dash-vital {
+      background: #f5f9f8;
+      border-radius: 6px;
+      padding: 6px;
+      text-align: center;
+      font-size: 0.55rem;
+    }
+    .dash-vital strong { display: block; font-size: 0.75rem; color: var(--navy); }
+    .dash-offer-preview {
       padding: 8px 10px;
       border-bottom: 1px solid #eef2f1;
     }
-    .dash-table-row.header {
-      background: var(--teal-light);
-      font-weight: 700;
-      color: var(--teal-dark);
+    .dash-offer-preview h5 { font-size: 0.62rem; color: var(--navy); margin-bottom: 2px; }
+    .dash-offer-preview p { font-size: 0.55rem; color: var(--text-muted); }
+    .dash-search {
+      width: 100%;
+      max-width: 180px;
+      padding: 5px 8px;
+      border-radius: 6px;
+      border: 1px solid #dde5e3;
+      font-size: 0.58rem;
+      margin-bottom: 8px;
+      background: white;
+      color: var(--text-muted);
     }
     .proto-note {
       text-align: center;
@@ -1125,6 +1386,10 @@
       .hero-lead { margin-left: auto; margin-right: auto; }
       .hero-actions, .hero-stats { justify-content: center; }
       .proto-layout { grid-template-columns: 1fr; }
+      .dash-split { grid-template-columns: 1fr; }
+      .dash-grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .dash-table-row.cols-6 { grid-template-columns: 0.6fr 1fr 0.6fr 0.8fr; font-size: 0.52rem; }
+      .dash-table-row.cols-6 span:nth-child(n+5) { display: none; }
       .desktop-body { grid-template-columns: 110px 1fr; }
       .macbook-display { min-height: 280px; }
     }
@@ -1350,27 +1615,87 @@
         </div>
 
         <div class="prototype-tabs reveal">
-          <button class="proto-tab active" data-proto="app"><span class="tab-icon"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/></svg> App móvil</span></button>
-          <button class="proto-tab" data-proto="system"><span class="tab-icon"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Sistema web</span></button>
+          <button class="proto-tab active" data-proto="system"><span class="tab-icon"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg> Sistema veterinarias</span></button>
+          <button class="proto-tab" data-proto="app"><span class="tab-icon"><svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M12 18h.01"/></svg> App móvil</span></button>
         </div>
 
-        <!-- App prototype -->
-        <div class="proto-view active" id="proto-app">
+        <!-- Sistema web (default) -->
+        <div class="proto-view active" id="proto-system">
+          <div class="proto-layout">
+            <div class="proto-info reveal">
+              <span class="proto-label">Sistema web · Veterinarias</span>
+              <h3>Panel de gestión integral</h3>
+              <p>Agenda, historias clínicas, pacientes, recordatorios y publicación de ofertas en un entorno profesional.</p>
+              <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+                <button class="proto-tab active" data-dscreen="agenda" style="font-size:0.8rem;padding:0.5rem 0.85rem;">Agenda</button>
+                <button class="proto-tab" data-dscreen="historia" style="font-size:0.8rem;padding:0.5rem 0.85rem;">Historia clínica</button>
+                <button class="proto-tab" data-dscreen="pacientes" style="font-size:0.8rem;padding:0.5rem 0.85rem;">Pacientes</button>
+                <button class="proto-tab" data-dscreen="anuncios" style="font-size:0.8rem;padding:0.5rem 0.85rem;">Anuncios</button>
+              </div>
+              <ul id="system-screen-desc">
+                <li>Vista diaria, semanal y mensual de turnos</li>
+                <li>Estado, veterinario asignado y estimación de insumos</li>
+                <li>Recordatorios automáticos a clientes</li>
+              </ul>
+            </div>
+            <div class="reveal macbook-wrap">
+              <div class="macbook">
+                <div class="macbook-lid">
+                  <div class="macbook-bezel">
+                    <div class="macbook-camera"></div>
+                    <div class="macbook-display">
+                      <div class="macos-bar">
+                        <div class="macos-bar-left">
+                          <span class="macos-dot red"></span>
+                          <span class="macos-dot yellow"></span>
+                          <span class="macos-dot green"></span>
+                        </div>
+                        <span class="macos-bar-title">Pet Vet — Vet San Martín</span>
+                        <span>Mar 7 Jul · 09:41</span>
+                      </div>
+                      <div class="desktop-body">
+                        <div class="desktop-sidebar" id="desktop-sidebar">
+                          <div class="sidebar-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="7.5" cy="9" rx="2" ry="2.5"/><ellipse cx="16.5" cy="9" rx="2" ry="2.5"/><ellipse cx="5" cy="14" rx="1.6" ry="2"/><ellipse cx="19" cy="14" rx="1.6" ry="2"/><ellipse cx="12" cy="17" rx="2.8" ry="2.2"/></svg> Pet Vet</div>
+                          <div class="sidebar-section">Principal</div>
+                          <div class="sidebar-item active" data-sb="0"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Agenda <span class="sb-badge">12</span></div>
+                          <div class="sidebar-item" data-sb="1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg> Historia clínica</div>
+                          <div class="sidebar-item" data-sb="2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Pacientes <span class="sb-badge">284</span></div>
+                          <div class="sidebar-section">Marketing</div>
+                          <div class="sidebar-item" data-sb="3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 001 1h1l1 7h12l1-7h1a1 1 0 001-1v-2"/><path d="M5 11V7a7 7 0 0114 0v4"/></svg> Anuncios</div>
+                          <div class="sidebar-item" data-sb="4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg> Recordatorios</div>
+                          <div class="sidebar-section">Admin</div>
+                          <div class="sidebar-item" data-sb="5"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2"/></svg> Configuración</div>
+                          <div class="sidebar-user"><div class="sidebar-user-avatar">DG</div><div><strong>Dr. García</strong><br>Plan Premium</div></div>
+                        </div>
+                        <div class="desktop-main" id="desktop-screen-content"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="macbook-hinge"></div>
+                <div class="macbook-base"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- App móvil -->
+        <div class="proto-view" id="proto-app">
           <div class="proto-layout">
             <div class="proto-info reveal">
               <span class="proto-label">App móvil · Gratis</span>
               <h3>Tu mascota en el bolsillo</h3>
-              <p>Interfaz pensada para dueños de mascotas: simple, clara y siempre disponible.</p>
-              <div class="app-screen-tabs" style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
+              <p>Interfaz pensada para dueños: turnos, historial, veterinarias cercanas y ofertas en pocos toques.</p>
+              <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
                 <button class="proto-tab active" data-screen="inicio" style="font-size:0.8rem;padding:0.5rem 0.85rem;">Inicio</button>
                 <button class="proto-tab" data-screen="turnos" style="font-size:0.8rem;padding:0.5rem 0.85rem;">Turnos</button>
                 <button class="proto-tab" data-screen="historial" style="font-size:0.8rem;padding:0.5rem 0.85rem;">Historial</button>
                 <button class="proto-tab" data-screen="ofertas" style="font-size:0.8rem;padding:0.5rem 0.85rem;">Ofertas</button>
               </div>
               <ul id="app-screen-desc">
-                <li>Mascotas registradas con datos personales</li>
-                <li>Próximos turnos a un toque</li>
-                <li>Acceso rápido a veterinarias cercanas</li>
+                <li>Panel personal con todas tus mascotas</li>
+                <li>Accesos rápidos a turnos e historial</li>
+                <li>Alertas y recordatorios de salud</li>
               </ul>
             </div>
             <div class="app-frame-wrap reveal">
@@ -1386,110 +1711,17 @@
                       </div>
                     </div>
                     <div class="iphone-screen-inner">
-                      <div class="app-content" id="app-screen-content">
-                        <p class="screen-greeting">Buenos días,</p>
-                        <h3 class="screen-title">María</h3>
-                        <div class="screen-pet">
-                          <div class="screen-pet-avatar" style="background:#fdeee9;">
-                            <svg class="pet-avatar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 11c0-2.2 1.8-3.5 3.5-3.5.7 0 1.3.2 1.8.6.5-.4 1.1-.6 1.8-.6 1.7 0 3.5 1.3 3.5 3.5"/><circle cx="8" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="10" r="1" fill="currentColor" stroke="none"/><path d="M7 15c0 2.5 2.2 4.5 5 4.5s5-2 5-4.5"/></svg>
-                          </div>
-                          <div class="screen-pet-info"><h5>Luna</h5><p>Labrador · 3 años · 28 kg</p></div>
-                        </div>
-                        <div class="screen-pet">
-                          <div class="screen-pet-avatar" style="background:#e8f6f4;">
-                            <svg class="pet-avatar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-1.5 0-2.5 1.2-2.5 2.5 0 1 .5 1.8 1.2 2.2-.8.5-1.5 1.5-1.5 2.8 0 1.7 1.3 3 3 3h3c1.7 0 3-1.3 3-3 0-1.3-.7-2.3-1.5-2.8.7-.4 1.2-1.2 1.2-2.2C17.5 6.2 16.5 5 15 5"/><path d="M8 8c-.8 0-1.5.7-1.5 1.5S7.2 11 8 11"/><path d="M16 8c.8 0 1.5.7 1.5 1.5S16.8 11 16 11"/></svg>
-                          </div>
-                          <div class="screen-pet-info"><h5>Michi</h5><p>Siamés · 2 años · 4 kg</p></div>
-                        </div>
-                        <div class="screen-card">
-                          <h5>Próximo turno</h5>
-                          <p>Vie 12 Jul · 15:00 · Vacuna antirrábica</p>
-                          <span class="screen-tag tag-teal">Vet San Martín</span>
-                        </div>
-                        <div class="screen-card">
-                          <h5>Recordatorio</h5>
-                          <p>Control anual de Luna — en 5 días</p>
-                          <span class="screen-tag tag-amber">Pendiente</span>
-                        </div>
-                      </div>
-                      <div class="app-nav-bar">
-                        <span class="active">Inicio</span>
-                        <span>Turnos</span>
-                        <span>Mapa</span>
-                        <span>Perfil</span>
+                      <div class="app-content" id="app-screen-content"></div>
+                      <div class="app-nav-bar" id="app-nav-bar">
+                        <div class="app-nav-item active"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>Inicio</div>
+                        <div class="app-nav-item"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Turnos</div>
+                        <div class="app-nav-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Mapa</div>
+                        <div class="app-nav-item"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Perfil</div>
                       </div>
                     </div>
                     <div class="iphone-home-bar"><span></span></div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- System prototype -->
-        <div class="proto-view" id="proto-system">
-          <div class="proto-layout">
-            <div class="proto-info reveal">
-              <span class="proto-label">Sistema web · Veterinarias</span>
-              <h3>Panel de gestión integral</h3>
-              <p>Herramientas profesionales para administrar tu veterinaria de punta a punta.</p>
-              <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
-                <button class="proto-tab active" data-dscreen="agenda" style="font-size:0.8rem;padding:0.5rem 0.85rem;">Agenda</button>
-                <button class="proto-tab" data-dscreen="historia" style="font-size:0.8rem;padding:0.5rem 0.85rem;">Historia clínica</button>
-                <button class="proto-tab" data-dscreen="anuncios" style="font-size:0.8rem;padding:0.5rem 0.85rem;">Anuncios</button>
-              </div>
-              <ul id="system-screen-desc">
-                <li>Agenda diaria, semanal y mensual</li>
-                <li>Estimación de demanda e insumos</li>
-                <li>Turnos confirmados y pendientes</li>
-              </ul>
-            </div>
-            <div class="reveal macbook-wrap">
-              <div class="macbook">
-                <div class="macbook-lid">
-                  <div class="macbook-bezel">
-                    <div class="macbook-camera"></div>
-                    <div class="macbook-display">
-                      <div class="macos-bar">
-                        <div class="macos-bar-left">
-                          <span class="macos-dot red"></span>
-                          <span class="macos-dot yellow"></span>
-                          <span class="macos-dot green"></span>
-                        </div>
-                        <span class="macos-bar-title">Pet Vet — Gestión</span>
-                        <span>9:41</span>
-                      </div>
-                      <div class="desktop-body">
-                        <div class="desktop-sidebar">
-                          <div class="sidebar-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="7.5" cy="9" rx="2" ry="2.5"/><ellipse cx="16.5" cy="9" rx="2" ry="2.5"/><ellipse cx="5" cy="14" rx="1.6" ry="2"/><ellipse cx="19" cy="14" rx="1.6" ry="2"/><ellipse cx="12" cy="17" rx="2.8" ry="2.2"/></svg> Pet Vet</div>
-                          <div class="sidebar-item active"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Agenda</div>
-                          <div class="sidebar-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg> Historia clínica</div>
-                          <div class="sidebar-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg> Pacientes</div>
-                          <div class="sidebar-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11v2a1 1 0 001 1h1l1 7h12l1-7h1a1 1 0 001-1v-2"/><path d="M5 11V7a7 7 0 0114 0v4"/></svg> Anuncios</div>
-                          <div class="sidebar-item"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg> Configuración</div>
-                        </div>
-                        <div class="desktop-main" id="desktop-screen-content">
-                          <h4>Agenda — Julio 2026</h4>
-                          <div class="dash-grid">
-                            <div class="dash-stat"><strong>12</strong>Turnos hoy</div>
-                            <div class="dash-stat"><strong>47</strong>Esta semana</div>
-                            <div class="dash-stat"><strong>3</strong>Pendientes</div>
-                          </div>
-                          <div class="dash-table">
-                            <div class="dash-table-row header"><span>Hora</span><span>Paciente</span><span>Motivo</span></div>
-                            <div class="dash-table-row"><span>09:00</span><span>Luna (María G.)</span><span>Vacuna</span></div>
-                            <div class="dash-table-row"><span>10:30</span><span>Rocky (Carlos P.)</span><span>Control</span></div>
-                            <div class="dash-table-row"><span>11:15</span><span>Michi (María G.)</span><span>Consulta</span></div>
-                            <div class="dash-table-row"><span>15:00</span><span>Max (Ana L.)</span><span>Cirugía menor</span></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="macbook-hinge"></div>
-                <div class="macbook-base"></div>
               </div>
             </div>
           </div>
@@ -1629,73 +1861,107 @@
       var ICON_DOG = '<svg class="pet-avatar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 11c0-2.2 1.8-3.5 3.5-3.5.7 0 1.3.2 1.8.6.5-.4 1.1-.6 1.8-.6 1.7 0 3.5 1.3 3.5 3.5"/><circle cx="8" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="10" r="1" fill="currentColor" stroke="none"/><path d="M7 15c0 2.5 2.2 4.5 5 4.5s5-2 5-4.5"/></svg>';
       var ICON_CAT = '<svg class="pet-avatar-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5c-1.5 0-2.5 1.2-2.5 2.5 0 1 .5 1.8 1.2 2.2-.8.5-1.5 1.5-1.5 2.8 0 1.7 1.3 3 3 3h3c1.7 0 3-1.3 3-3 0-1.3-.7-2.3-1.5-2.8.7-.4 1.2-1.2 1.2-2.2C17.5 6.2 16.5 5 15 5"/><path d="M8 8c-.8 0-1.5.7-1.5 1.5S7.2 11 8 11"/><path d="M16 8c.8 0 1.5.7 1.5 1.5S16.8 11 16 11"/></svg>';
       var ICON_STAR = '<svg class="icon-inline icon-sm" viewBox="0 0 24 24" fill="#f4a261" stroke="none" aria-hidden="true" style="vertical-align:-2px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+      var ICON_CAL = '<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>';
+      var ICON_HIST = '<svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>';
+      var ICON_MAP = '<svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+      var ICON_TAG = '<svg viewBox="0 0 24 24"><path d="M3 11v2a1 1 0 001 1h1l1 7h12l1-7h1a1 1 0 001-1v-2"/><path d="M5 11V7a7 7 0 0114 0v4"/></svg>';
 
-      /* App screen content */
+      function setSidebarActive(idx) {
+        document.querySelectorAll('#desktop-sidebar .sidebar-item[data-sb]').forEach(function(item) {
+          item.classList.toggle('active', item.dataset.sb === String(idx));
+        });
+      }
+
+      function setAppNavActive(idx) {
+        var nav = document.getElementById('app-nav-bar');
+        if (!nav) return;
+        nav.querySelectorAll('.app-nav-item').forEach(function(item, i) {
+          item.classList.toggle('active', i === idx);
+        });
+      }
+
       var appScreens = {
         inicio: {
-          html: '<p class="screen-greeting">Buenos días,</p><h3 class="screen-title">María</h3><div class="screen-pet"><div class="screen-pet-avatar" style="background:#fdeee9;">' + ICON_DOG + '</div><div class="screen-pet-info"><h5>Luna</h5><p>Labrador · 3 años · 28 kg</p></div></div><div class="screen-pet"><div class="screen-pet-avatar" style="background:#e8f6f4;">' + ICON_CAT + '</div><div class="screen-pet-info"><h5>Michi</h5><p>Siamés · 2 años · 4 kg</p></div></div><div class="screen-card"><h5>Próximo turno</h5><p>Vie 12 Jul · 15:00 · Vacuna antirrábica</p><span class="screen-tag tag-teal">Vet San Martín</span></div><div class="screen-card"><h5>Recordatorio</h5><p>Control anual de Luna — en 5 días</p><span class="screen-tag tag-amber">Pendiente</span></div>',
-          desc: ['Mascotas registradas con datos personales', 'Próximos turnos a un toque', 'Acceso rápido a veterinarias cercanas']
+          html: '<p class="screen-greeting">Martes, 7 de julio</p><h3 class="screen-title">Hola, María</h3><div class="app-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>Buscar veterinaria o servicio</div><div class="app-quick-grid"><div class="app-quick-btn"><div class="qb-icon">' + ICON_CAL + '</div>Turno</div><div class="app-quick-btn"><div class="qb-icon">' + ICON_HIST + '</div>Historial</div><div class="app-quick-btn"><div class="qb-icon">' + ICON_MAP + '</div>Mapa</div><div class="app-quick-btn"><div class="qb-icon">' + ICON_TAG + '</div>Ofertas</div></div><p class="app-section-label">Mis mascotas</p><div class="screen-pet"><div class="screen-pet-avatar" style="background:#fdeee9;">' + ICON_DOG + '</div><div class="screen-pet-info"><h5>Luna</h5><p>Labrador · Hembra · 3 años · 28 kg</p></div><span class="screen-tag tag-teal">Al día</span></div><div class="screen-pet"><div class="screen-pet-avatar" style="background:#e8f6f4;">' + ICON_CAT + '</div><div class="screen-pet-info"><h5>Michi</h5><p>Siamés · Macho · 2 años · 4 kg</p></div><span class="screen-tag tag-amber">Vacuna pronto</span></div><p class="app-section-label">Próximas actividades</p><div class="screen-list-item"><div class="sli-main"><strong>Vacuna antirrábica — Luna</strong><span>Vie 12 Jul · 15:00 · Vet San Martín</span></div><span class="screen-tag tag-teal">Confirmado</span></div><div class="screen-list-item"><div class="sli-main"><strong>Control anual — Michi</strong><span>Recordatorio en 5 días</span></div><span class="screen-tag tag-amber">Pendiente</span></div>',
+          desc: ['Panel personal con todas tus mascotas', 'Accesos rápidos a turnos e historial', 'Alertas y recordatorios de salud'],
+          nav: 0
         },
         turnos: {
-          html: '<h3 class="screen-title">Agendar turno</h3><div class="screen-card"><h5>Vet San Martín</h5><p>Av. San Martín 1234 · ' + ICON_STAR + ' 4.8</p></div><p style="font-size:0.75rem;color:#5c7174;margin-bottom:8px;">Seleccioná fecha:</p><div class="calendar-mini"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span class="day-active">12</span><span>13</span></div><div class="screen-card" style="margin-top:10px;"><h5>Horarios disponibles</h5><p><span class="screen-tag tag-teal">09:00</span> <span class="screen-tag tag-teal">10:30</span> <span class="screen-tag tag-teal">15:00</span> <span class="screen-tag tag-coral">16:30</span></p></div><div class="screen-card"><h5>Mascota</h5><p>Luna · Vacuna antirrábica</p></div>',
-          desc: ['Elegí veterinaria y horario disponible', 'Calendario interactivo de turnos', 'Confirmación instantánea']
+          html: '<h3 class="screen-title">Agendar turno</h3><div class="app-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>Buscar veterinaria</div><div class="screen-vet-card"><h5>Vet San Martín</h5><p>Av. San Martín 1234 · 1.2 km · ' + ICON_STAR + ' 4.8 (126)</p><div class="screen-vet-meta"><span class="screen-tag tag-teal">Abierto hoy</span><span class="screen-tag tag-teal">Turnos online</span></div></div><div class="screen-vet-card"><h5>Clínica Vet Norte</h5><p>Bv. Oroño 890 · 2.4 km · ' + ICON_STAR + ' 4.6 (89)</p><div class="screen-vet-meta"><span class="screen-tag tag-amber">Cierra 19:00</span></div></div><p class="app-section-label">Vie 12 Jul — Vet San Martín</p><div class="calendar-mini"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span class="day-active">12</span><span>13</span></div><p class="app-section-label" style="margin-top:10px;">Horarios · Luna</p><div class="screen-card"><p><span class="screen-tag tag-teal">09:00</span> <span class="screen-tag tag-teal">10:30</span> <span class="screen-tag tag-teal">15:00</span> <span class="screen-tag tag-coral">16:30</span></p><p style="margin-top:6px;font-size:0.65rem;">Motivo: Vacuna antirrábica</p></div>',
+          desc: ['Compará veterinarias cercanas con valoraciones', 'Calendario y horarios en tiempo real', 'Confirmación y recordatorio automático'],
+          nav: 1
         },
         historial: {
-          html: '<h3 class="screen-title">Historial — Luna</h3><div class="history-item"><h5>15/03/2026 — Vacuna quintuple</h5><p>Dr. García · Vet San Martín · Sin reacciones</p></div><div class="history-item"><h5>10/01/2026 — Control anual</h5><p>Peso: 28 kg · Estado general: excelente</p></div><div class="history-item"><h5>05/11/2025 — Desparasitación</h5><p>Producto: Drontal · Próximo control: Nov 2026</p></div><div class="history-item"><h5>20/08/2025 — Consulta digestiva</h5><p>Diagnóstico: Gastritis leve · Tratamiento 7 días</p></div>',
-          desc: ['Historial clínico completo por mascota', 'Vacunas, controles y tratamientos', 'Trazabilidad de cada atención']
+          html: '<h3 class="screen-title">Historial clínico</h3><div class="screen-pet" style="margin-bottom:12px;"><div class="screen-pet-avatar" style="background:#fdeee9;">' + ICON_DOG + '</div><div class="screen-pet-info"><h5>Luna · Labrador</h5><p>Chip: AR-458921 · 28 kg</p></div></div><div style="display:flex;gap:4px;margin-bottom:10px;flex-wrap:wrap;"><span class="screen-tag tag-teal">Todos</span><span class="screen-tag tag-teal" style="opacity:0.6;">Vacunas</span><span class="screen-tag tag-teal" style="opacity:0.6;">Controles</span><span class="screen-tag tag-teal" style="opacity:0.6;">Tratamientos</span></div><div class="history-item"><h5>15/03/2026 — Vacuna quintuple</h5><p>Dr. García · Vet San Martín · Lote VQ-2026 · Sin reacciones</p></div><div class="history-item"><h5>10/01/2026 — Control anual</h5><p>Peso 28 kg · Temp. 38.4°C · Estado general excelente</p></div><div class="history-item"><h5>05/11/2025 — Desparasitación</h5><p>Drontal Plus · Próximo control: Nov 2026</p></div><div class="history-item"><h5>20/08/2025 — Consulta digestiva</h5><p>Diagnóstico: Gastritis leve · Omeprazol 7 días</p></div><div class="screen-card" style="margin-top:8px;"><p style="font-size:0.65rem;">Exportar PDF · Compartir con veterinaria</p></div>',
+          desc: ['Historial completo filtrable por tipo', 'Vacunas, controles y tratamientos', 'Exportación y trazabilidad total'],
+          nav: 0
         },
         ofertas: {
-          html: '<h3 class="screen-title">Ofertas cerca tuyo</h3><div class="offer-banner"><h5>20% OFF en antipulgas</h5><p>Vet San Martín · Válido hasta 31/07</p></div><div class="screen-card"><h5>PetShop Central</h5><p>2x1 en alimento premium · 500m</p><span class="screen-tag tag-coral">Oferta</span></div><div class="screen-card"><h5>Consulta sin cargo</h5><p>Vet Norte · Primera consulta gratis</p><span class="screen-tag tag-teal">Nuevo</span></div><div class="screen-card"><h5>Baño + corte</h5><p>Pelucan · $8.500 · Turnos online</p><span class="screen-tag tag-amber">PetShop</span></div>',
-          desc: ['Ofertas de veterinarias y PetShops', 'Descuentos en productos para mascotas', 'Promociones geolocalizadas']
+          html: '<h3 class="screen-title">Ofertas y servicios</h3><div class="app-search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>Buscar en tu zona</div><div style="display:flex;gap:4px;margin-bottom:10px;flex-wrap:wrap;"><span class="screen-tag tag-teal">Todos</span><span class="screen-tag tag-teal" style="opacity:0.6;">Veterinarias</span><span class="screen-tag tag-teal" style="opacity:0.6;">PetShop</span></div><div class="offer-banner"><h5>20% OFF en antipulgas</h5><p>Vet San Martín · Válido hasta 31/07 · 1.2 km</p></div><div class="screen-list-item"><div class="sli-main"><strong>PetShop Central</strong><span>2x1 alimento premium · 500 m</span></div><span class="screen-tag tag-coral">-30%</span></div><div class="screen-list-item"><div class="sli-main"><strong>Consulta sin cargo</strong><span>Vet Norte · Primera consulta</span></div><span class="screen-tag tag-teal">Nuevo</span></div><div class="screen-list-item"><div class="sli-main"><strong>Pelucan — Baño + corte</strong><span>$8.500 · Turnos online · 800 m</span></div><span class="screen-tag tag-amber">PetShop</span></div><div class="screen-list-item"><div class="sli-main"><strong>Plan salud anual</strong><span>3 consultas + vacunas · Vet San Martín</span></div><span class="screen-tag tag-teal">Destacado</span></div>',
+          desc: ['Ofertas geolocalizadas de veterinarias', 'Promociones de PetShops cercanos', 'Filtros por categoría y distancia'],
+          nav: 0
         }
       };
+
+      var desktopScreens = {
+        agenda: {
+          html: '<div class="dash-header"><div><span class="dash-breadcrumb">Gestión / Agenda</span><h4>Agenda del día — Martes 7 Jul 2026</h4></div><div class="dash-header-actions"><span class="dash-filter active">Hoy</span><span class="dash-filter">Semana</span><span class="dash-filter">Mes</span><button class="dash-btn">+ Turno</button><button class="dash-btn dash-btn-outline">Exportar</button></div></div><div class="dash-grid dash-grid-4"><div class="dash-stat"><strong>12</strong><span class="stat-label">Turnos hoy</span><span class="stat-trend">+2 vs ayer</span></div><div class="dash-stat"><strong>47</strong><span class="stat-label">Esta semana</span></div><div class="dash-stat"><strong>3</strong><span class="stat-label">Pendientes</span><span class="stat-trend down">Requieren confirmación</span></div><div class="dash-stat"><strong>8</strong><span class="stat-label">Recordatorios</span><span class="stat-trend">Enviados hoy</span></div></div><div class="dash-split"><div class="dash-panel"><div class="dash-panel-head">Turnos del día <span>12 citas</span></div><div class="dash-table"><div class="dash-table-row header cols-6"><span>Hora</span><span>Paciente</span><span>Especie</span><span>Motivo</span><span>Vet.</span><span>Estado</span></div><div class="dash-table-row cols-6"><span>09:00</span><span>Luna · M. García</span><span>Canina</span><span>Vacuna quintuple</span><span>Dr. García</span><span><span class="dash-badge ok">Confirmado</span></span></div><div class="dash-table-row cols-6"><span>10:30</span><span>Rocky · C. Pérez</span><span>Canina</span><span>Control post-op.</span><span>Dra. López</span><span><span class="dash-badge ok">En sala</span></span></div><div class="dash-table-row cols-6"><span>11:15</span><span>Michi · M. García</span><span>Felina</span><span>Consulta general</span><span>Dr. García</span><span><span class="dash-badge wait">Espera</span></span></div><div class="dash-table-row cols-6"><span>14:00</span><span>Nina · A. López</span><span>Felina</span><span>Ecografía</span><span>Dra. López</span><span><span class="dash-badge wait">Pendiente</span></span></div><div class="dash-table-row cols-6"><span>15:00</span><span>Max · A. López</span><span>Canina</span><span>Cirugía menor</span><span>Dr. García</span><span><span class="dash-badge ok">Confirmado</span></span></div></div></div><div class="dash-panel"><div class="dash-panel-head">Resumen e insumos</div><div class="dash-timeline-item"><strong>Demanda estimada</strong><span>6 vacunas · 2 controles · 1 cirugía</span></div><div class="dash-timeline-item"><strong>Insumos a preparar</strong><span>Antirrábica x4 · Sueros x2 · Gas anestésico</span></div><div class="dash-timeline-item"><strong>Próximo recordatorio</strong><span>Max — Prequirúrgico · 14:30</span></div><div class="dash-timeline-item"><strong>Ocupación consultorios</strong><span>Consultorio 1: 85% · Consultorio 2: 60%</span></div><div class="dash-timeline-item"><strong>Turnos online (app)</strong><span>5 reservas hoy · 2 pendientes de confirmar</span></div></div></div>',
+          desc: ['Vista diaria, semanal y mensual de turnos', 'Estado, veterinario asignado y estimación de insumos', 'Recordatorios automáticos a clientes'],
+          sidebar: 0
+        },
+        historia: {
+          html: '<div class="dash-header"><div><span class="dash-breadcrumb">Pacientes / Historia clínica</span><h4>Luna — Canina · Labrador Retriever</h4></div><div class="dash-header-actions"><button class="dash-btn dash-btn-outline">Imprimir</button><button class="dash-btn">+ Nueva entrada</button></div></div><div class="dash-grid dash-grid-4"><div class="dash-stat"><strong>María G.</strong><span class="stat-label">Tutora · 342-5551234</span></div><div class="dash-stat"><strong>3 años</strong><span class="stat-label">Edad · Hembra</span></div><div class="dash-stat"><strong>28 kg</strong><span class="stat-label">Último peso · 10/01/26</span></div><div class="dash-stat"><strong>AR-458921</strong><span class="stat-label">Microchip</span></div></div><div class="dash-split"><div class="dash-panel"><div class="dash-panel-head">Registro clínico <span>24 entradas</span></div><div class="dash-table"><div class="dash-table-row header cols-5"><span>Fecha</span><span>Procedimiento</span><span>Diagnóstico / Notas</span><span>Veterinario</span><span>Estado</span></div><div class="dash-table-row cols-5"><span>15/03/26</span><span>Vacuna quintuple</span><span>Sin reacciones · Lote VQ-26</span><span>Dr. García</span><span><span class="dash-badge ok">Completo</span></span></div><div class="dash-table-row cols-5"><span>10/01/26</span><span>Control anual</span><span>Estado excelente · Temp. 38.4°C</span><span>Dra. López</span><span><span class="dash-badge ok">Completo</span></span></div><div class="dash-table-row cols-5"><span>05/11/25</span><span>Desparasitación</span><span>Drontal Plus · 1 comprimido</span><span>Dr. García</span><span><span class="dash-badge ok">Completo</span></span></div><div class="dash-table-row cols-5"><span>20/08/25</span><span>Consulta digestiva</span><span>Gastritis leve · Omeprazol 7 d</span><span>Dr. García</span><span><span class="dash-badge done">Archivado</span></span></div></div></div><div class="dash-panel"><div class="dash-panel-head">Signos vitales · último control</div><div class="dash-vitals"><div class="dash-vital"><strong>28 kg</strong>Peso</div><div class="dash-vital"><strong>38.4°C</strong>Temp.</div><div class="dash-vital"><strong>88 lpm</strong>FC</div><div class="dash-vital"><strong>22 rpm</strong>FR</div><div class="dash-vital"><strong>6.5</strong>Cond. corp.</div><div class="dash-vital"><strong>Al día</strong>Vacunas</div></div><div class="dash-panel-head" style="border-top:1px solid #eef2f1;">Próximos recordatorios</div><div class="dash-timeline-item"><strong>Antirrábica anual</strong><span>Programada · 12/07/2026</span></div><div class="dash-timeline-item"><strong>Desparasitación</strong><span>En 4 meses · Nov 2026</span></div></div></div>',
+          desc: ['Ficha completa con signos vitales', 'Trazabilidad de vacunas y tratamientos', 'Recordatorios programados automáticamente'],
+          sidebar: 1
+        },
+        pacientes: {
+          html: '<div class="dash-header"><div><span class="dash-breadcrumb">Gestión / Pacientes</span><h4>Base de pacientes activos</h4></div><div class="dash-header-actions"><input class="dash-search" type="text" placeholder="Buscar por nombre, tutor o chip..." readonly><button class="dash-btn">+ Paciente</button></div></div><div class="dash-grid dash-grid-4"><div class="dash-stat"><strong>284</strong><span class="stat-label">Pacientes activos</span></div><div class="dash-stat"><strong>18</strong><span class="stat-label">Nuevos este mes</span><span class="stat-trend">+12%</span></div><div class="dash-stat"><strong>156</strong><span class="stat-label">Caninos</span></div><div class="dash-stat"><strong>128</strong><span class="stat-label">Felinos</span></div></div><div class="dash-panel"><div class="dash-panel-head">Listado reciente <span>284 registros</span></div><div class="dash-table"><div class="dash-table-row header cols-5"><span>Paciente</span><span>Tutor</span><span>Especie / Raza</span><span>Última visita</span><span>Estado</span></div><div class="dash-table-row cols-5"><span>Luna</span><span>María García</span><span>Canina · Labrador</span><span>15/03/2026</span><span><span class="dash-badge ok">Al día</span></span></div><div class="dash-table-row cols-5"><span>Michi</span><span>María García</span><span>Felina · Siamés</span><span>11/06/2026</span><span><span class="dash-badge wait">Vacuna pronto</span></span></div><div class="dash-table-row cols-5"><span>Rocky</span><span>Carlos Pérez</span><span>Canina · Bulldog</span><span>02/07/2026</span><span><span class="dash-badge alert">Tratamiento</span></span></div><div class="dash-table-row cols-5"><span>Max</span><span>Ana López</span><span>Canina · Golden</span><span>28/06/2026</span><span><span class="dash-badge ok">Al día</span></span></div><div class="dash-table-row cols-5"><span>Nina</span><span>Ana López</span><span>Felina · Persa</span><span>01/07/2026</span><span><span class="dash-badge wait">Control pend.</span></span></div></div></div>',
+          desc: ['Búsqueda por nombre, tutor o microchip', 'Estado de salud y última visita', 'Alta rápida de nuevos pacientes'],
+          sidebar: 2
+        },
+        anuncios: {
+          html: '<div class="dash-header"><div><span class="dash-breadcrumb">Marketing / Anuncios</span><h4>Campañas y ofertas activas</h4></div><div class="dash-header-actions"><button class="dash-btn">+ Nueva oferta</button><button class="dash-btn dash-btn-outline">Ver métricas</button></div></div><div class="dash-grid dash-grid-4"><div class="dash-stat"><strong>3</strong><span class="stat-label">Ofertas activas</span></div><div class="dash-stat"><strong>847</strong><span class="stat-label">Visualizaciones</span><span class="stat-trend">+18% esta semana</span></div><div class="dash-stat"><strong>52</strong><span class="stat-label">Clics en app</span></div><div class="dash-stat"><strong>14</strong><span class="stat-label">Conversiones</span><span class="stat-trend">Turnos generados</span></div></div><div class="dash-split"><div class="dash-panel"><div class="dash-panel-head">Campañas publicadas</div><div class="dash-table"><div class="dash-table-row header cols-5"><span>Oferta</span><span>Tipo</span><span>Vigencia</span><span>Alcance</span><span>Estado</span></div><div class="dash-table-row cols-5"><span>20% OFF antipulgas</span><span>Producto</span><span>Hasta 31/07</span><span>342 usuarios</span><span><span class="dash-badge ok">Activa</span></span></div><div class="dash-table-row cols-5"><span>Consulta sin cargo</span><span>Servicio</span><span>Hasta 15/08</span><span>890 usuarios</span><span><span class="dash-badge ok">Activa</span></span></div><div class="dash-table-row cols-5"><span>2x1 alimento premium</span><span>PetShop</span><span>Finalizada</span><span>1.240 usuarios</span><span><span class="dash-badge done">Vencida</span></span></div></div></div><div class="dash-panel"><div class="dash-panel-head">Vista previa en app</div><div class="dash-offer-preview"><h5>20% OFF en antipulgas</h5><p>Aparece en búsqueda geolocalizada · Radio 5 km</p></div><div class="dash-offer-preview"><h5>Consulta sin cargo</h5><p>Primera consulta · Destacado en inicio</p></div><div class="dash-timeline-item"><strong>Plan Premium</strong><span>Publicación ilimitada de ofertas activa</span></div></div></div>',
+          desc: ['Creación y gestión de campañas', 'Métricas de visualización y conversión', 'Visibilidad geolocalizada en la app'],
+          sidebar: 3
+        }
+      };
+
+      function loadAppScreen(key) {
+        var s = appScreens[key];
+        if (!s) return;
+        document.getElementById('app-screen-content').innerHTML = s.html;
+        document.getElementById('app-screen-desc').innerHTML = s.desc.map(function(d) { return '<li>' + d + '</li>'; }).join('');
+        setAppNavActive(s.nav);
+      }
+
+      function loadDesktopScreen(key) {
+        var s = desktopScreens[key];
+        if (!s) return;
+        document.getElementById('desktop-screen-content').innerHTML = s.html;
+        document.getElementById('system-screen-desc').innerHTML = s.desc.map(function(d) { return '<li>' + d + '</li>'; }).join('');
+        setSidebarActive(s.sidebar);
+      }
 
       document.querySelectorAll('[data-screen]').forEach(function(btn) {
         btn.addEventListener('click', function() {
-          var screen = btn.dataset.screen;
           var parent = btn.closest('.proto-info');
           parent.querySelectorAll('[data-screen]').forEach(function(b) { b.classList.remove('active'); });
           btn.classList.add('active');
-          document.getElementById('app-screen-content').innerHTML = appScreens[screen].html;
-          var descList = document.getElementById('app-screen-desc');
-          descList.innerHTML = appScreens[screen].desc.map(function(d) { return '<li>' + d + '</li>'; }).join('');
+          loadAppScreen(btn.dataset.screen);
         });
       });
-
-      /* Desktop screen content */
-      var desktopScreens = {
-        agenda: {
-          html: '<h4>Agenda — Julio 2026</h4><div class="dash-grid"><div class="dash-stat"><strong>12</strong>Turnos hoy</div><div class="dash-stat"><strong>47</strong>Esta semana</div><div class="dash-stat"><strong>3</strong>Pendientes</div></div><div class="dash-table"><div class="dash-table-row header"><span>Hora</span><span>Paciente</span><span>Motivo</span></div><div class="dash-table-row"><span>09:00</span><span>Luna (María G.)</span><span>Vacuna</span></div><div class="dash-table-row"><span>10:30</span><span>Rocky (Carlos P.)</span><span>Control</span></div><div class="dash-table-row"><span>11:15</span><span>Michi (María G.)</span><span>Consulta</span></div><div class="dash-table-row"><span>15:00</span><span>Max (Ana L.)</span><span>Cirugía menor</span></div></div>',
-          desc: ['Agenda diaria, semanal y mensual', 'Estimación de demanda e insumos', 'Turnos confirmados y pendientes'],
-          sidebar: [0, 1, 2, 3, 4]
-        },
-        historia: {
-          html: '<h4>Historia clínica — Luna (Canina)</h4><div class="dash-grid"><div class="dash-stat"><strong>María G.</strong>Dueña</div><div class="dash-stat"><strong>3 años</strong>Edad</div><div class="dash-stat"><strong>28 kg</strong>Peso</div></div><div class="dash-table"><div class="dash-table-row header"><span>Fecha</span><span>Procedimiento</span><span>Veterinario</span></div><div class="dash-table-row"><span>15/03/26</span><span>Vacuna quintuple</span><span>Dr. García</span></div><div class="dash-table-row"><span>10/01/26</span><span>Control anual</span><span>Dra. López</span></div><div class="dash-table-row"><span>05/11/25</span><span>Desparasitación</span><span>Dr. García</span></div><div class="dash-table-row"><span>20/08/25</span><span>Consulta digestiva</span><span>Dr. García</span></div></div>',
-          desc: ['Registro completo por paciente', 'Trazabilidad de tratamientos', 'Acceso rápido a historial previo'],
-          sidebar: [1, 0, 2, 3, 4]
-        },
-        anuncios: {
-          html: '<h4>Anuncios y ofertas activas</h4><div class="dash-grid"><div class="dash-stat"><strong>3</strong>Ofertas activas</div><div class="dash-stat"><strong>847</strong>Visualizaciones</div><div class="dash-stat"><strong>52</strong>Clics</div></div><div class="dash-table"><div class="dash-table-row header"><span>Oferta</span><span>Vigencia</span><span>Estado</span></div><div class="dash-table-row"><span>20% OFF antipulgas</span><span>Hasta 31/07</span><span style="color:#2a9d8f;">Activa</span></div><div class="dash-table-row"><span>Consulta sin cargo</span><span>Hasta 15/08</span><span style="color:#2a9d8f;">Activa</span></div><div class="dash-table-row"><span>2x1 alimento premium</span><span>Finalizada</span><span style="color:#aaa;">Vencida</span></div></div>',
-          desc: ['Publicá ofertas y descuentos', 'Métricas de visualización', 'Promoción de productos secundarios'],
-          sidebar: [3, 0, 1, 2, 4]
-        }
-      };
 
       document.querySelectorAll('[data-dscreen]').forEach(function(btn) {
         btn.addEventListener('click', function() {
-          var screen = btn.dataset.dscreen;
           var parent = btn.closest('.proto-info');
           parent.querySelectorAll('[data-dscreen]').forEach(function(b) { b.classList.remove('active'); });
           btn.classList.add('active');
-          document.getElementById('desktop-screen-content').innerHTML = desktopScreens[screen].html;
-          document.getElementById('system-screen-desc').innerHTML = desktopScreens[screen].desc.map(function(d) { return '<li>' + d + '</li>'; }).join('');
-          var items = document.querySelectorAll('.sidebar-item');
-          var activeIdx = { agenda: 0, historia: 1, anuncios: 3 }[screen];
-          items.forEach(function(item, i) {
-            item.classList.toggle('active', i === activeIdx);
-          });
+          loadDesktopScreen(btn.dataset.dscreen);
         });
       });
+
+      loadDesktopScreen('agenda');
+      loadAppScreen('inicio');
 
       /* Pricing toggle */
       var pricingToggle = document.getElementById('pricingToggle');
